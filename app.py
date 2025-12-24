@@ -1,3 +1,9 @@
+import warnings
+warnings.filterwarnings('ignore')
+
+import streamlit as st
+import pandas as pd
+import joblib
 import streamlit as st
 import pandas as pd
 import joblib
@@ -97,3 +103,4 @@ if submitted:
         st.success("🟢 Risque faible de maladie cardiaque (CHD = 0).")
 
     st.info("⚠️ Cette application ne remplace pas un avis médical.")
+
