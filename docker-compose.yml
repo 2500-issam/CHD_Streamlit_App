@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  chd-predictor:
+    build: .
+    container_name: chd-predictor
+    ports:
+      - "8501:8501"
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+```
+
+---
+
+### **3. Créer `.dockerignore`**
+
+Créez un fichier **`.dockerignore`** pour exclure les fichiers inutiles :
+```
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+.git/
+.gitignore
+.vscode/
+.idea/
+*.md
+.env
+venv/
+env/
+*.log
+.DS_Store
+Thumbs.db
